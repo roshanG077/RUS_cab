@@ -5,8 +5,26 @@ if (!isset($_SESSION['driver_id'])) { header("Location: index.php"); exit(); }
 
 $ticket_sent = false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_ticket'])) {
-    // In production: save to support_tickets table or send email
-    $ticket_sent = true;
+    $category     = mysqli_real_escape_string($conn, $_POST['category']);
+    $ride_id      = trim($_POST['ride_id']);
+    // Clean "#" from ride ID if present
+    $booking_id   = preg_replace('/[^0-9]/', '', $ride_id);
+    $booking_id_val = !empty($booking_id) ? (int)$booking_id : "NULL";
+    
+    $description  = mysqli_real_escape_string($conn, $_POST['description']);
+    $contact_pref = mysqli_real_escape_string($conn, $_POST['contact_pref']);
+    $message      = $description . "\n\nPreferred Contact: " . $contact_pref;
+    
+    $driver_id    = $_SESSION['driver_id'];
+    
+    $sql = "INSERT INTO complaints (driver_id, booking_id, subject, message, status) 
+            VALUES ('$driver_id', $booking_id_val, '$category', '$message', 'Open')";
+            
+    if (mysqli_query($conn, $sql)) {
+        $ticket_sent = true;
+    } else {
+        die("Error: " . mysqli_error($conn));
+    }
 }
 
 include '../driver/includes/header.php';

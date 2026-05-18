@@ -1,0 +1,120 @@
+# =============================================================
+#  RUS Cab — .gitignore
+# =============================================================
+
+# ---------------------------------------------------------------
+# 🔐 DATABASE CONFIGURATION (SENSITIVE — NEVER COMMIT)
+# ---------------------------------------------------------------
+config/db.php
+config/*.env
+*.env
+.env
+.env.*
+
+# ---------------------------------------------------------------
+# 🔧 EXAMPLE / TEMPLATE FILES (safe to track — committed)
+# ---------------------------------------------------------------
+!config/db.example.php
+
+# ---------------------------------------------------------------
+# 📦 DEPENDENCY & PACKAGE DIRECTORIES
+# ---------------------------------------------------------------
+/vendor/
+node_modules/
+bower_components/
+
+# ---------------------------------------------------------------
+# 🗃️ DATABASE DUMP FILES
+# Compressed/backup dumps are ignored; database.sql IS tracked
+# ---------------------------------------------------------------
+*.sql.gz
+*.sql.bak
+*.sql.backup
+
+# ---------------------------------------------------------------
+# 🖥️ OS-GENERATED FILES
+# ---------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+
+# ---------------------------------------------------------------
+# 🛠️ IDE & EDITOR FILES
+# ---------------------------------------------------------------
+# VSCode
+.vscode/
+*.code-workspace
+
+# PhpStorm / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# NetBeans
+nbproject/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# ---------------------------------------------------------------
+# 📝 LOG & TEMPORARY FILES
+# ---------------------------------------------------------------
+*.log
+*.tmp
+*.temp
+/logs/
+/tmp/
+/temp/
+error_log
+php_errors.log
+
+# ---------------------------------------------------------------
+# 📸 UPLOADED USER FILES (runtime uploads — not tracked)
+# Screenshots in assets/img/ ARE tracked for the README
+# ---------------------------------------------------------------
+/public/uploads/
+/driver/uploads/
+/assets/uploads/
+
+# Explicitly allow project screenshots referenced in README
+!assets/img/admin-dashboard.png
+!assets/img/booking-page.png
+!assets/img/driver-panel.png
+!assets/img/ride-tracking.png
+
+# ---------------------------------------------------------------
+# 🔑 CERTIFICATES & KEYS
+# ---------------------------------------------------------------
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ---------------------------------------------------------------
+# 🧪 TEST & DEBUG SCRIPTS
+# fix_admin.php is a one-time admin setup utility — not for Git
+# ---------------------------------------------------------------
+fix_admin.php
+test_*.php
+debug_*.php
+/tests/

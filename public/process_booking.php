@@ -18,8 +18,7 @@ if (isset($_POST['pickup_location'])) {
     $date = date('Y-m-d');
     $time = date('H:i:s');
     $otp  = rand(1000, 9999);
-    $car  = "Sedan"; 
-
+    $car  = mysqli_real_escape_string($conn, $_POST['car_type'] ?? 'Sedan');
     // LOGIC: If the user paid via Card or UPI in the modal, 
     // we set payment_status to 'Paid' immediately.
     $p_status = ($method == 'Cash') ? 'Unpaid' : 'Paid';

@@ -4,7 +4,7 @@ require_once '../config/db.php';
 if (!isset($_SESSION['admin_id'])) { header("Location: index.php"); exit(); }
 
 // Approve / Suspend
-if (isset($_POST['change_status'])) {
+if (isset($_POST['action'])) {
     $driver_id = mysqli_real_escape_string($conn, $_POST['driver_id']);
     $action    = $_POST['action'];
 
@@ -30,10 +30,13 @@ include 'header.php';
     <p>Approve new drivers, monitor performance, and manage account status.</p>
 </div>
 
-<?php if (isset($_GET['msg'])): ?>
-    <div class="a-alert a-alert-success">
-        <i class="fas fa-circle-check"></i>
-        <?php echo htmlspecialchars($_GET['msg']); ?>
+<?php if (isset($_GET['msg'])): 
+    $msg = $_GET['msg'];
+    $is_err = preg_match('/(suspended|error|failed|blocked)/i', $msg);
+?>
+    <div class="a-alert <?php echo $is_err ? 'a-alert-danger' : 'a-alert-success'; ?>">
+        <i class="fas <?php echo $is_err ? 'fa-triangle-exclamation' : 'fa-circle-check'; ?>"></i>
+        <?php echo htmlspecialchars($msg); ?>
     </div>
 <?php endif; ?>
 

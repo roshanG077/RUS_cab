@@ -25,12 +25,11 @@
   --d-text-muted:   #6b7280; /* Medium Gray */
   --d-text-dim:     #9ca3af; /* Light Gray */
 
-  /* Accent — Corporate Black 
-     (Note: Mapped to your existing 'green' classes so your PHP doesn't break) */
-  --d-primary:      #000000;
-  --d-primary-dark: #1f2937;
-  --d-primary-bg:   #f3f4f6;
-  --d-primary-glow: rgba(0, 0, 0, 0.15);
+  /* Accent — Sharp Corporate Amber */
+  --d-primary:      #e8a020;
+  --d-primary-dark: #c47800;
+  --d-primary-bg:   rgba(232, 160, 32, 0.08);
+  --d-primary-glow: rgba(232, 160, 32, 0.18);
 
   /* Status Colors adapted for Light Theme */
   --d-warning:      #d97706;
@@ -147,7 +146,7 @@ input, select, textarea, button {
   align-items: center;
   justify-content: center;
   font-size: 0.9rem;
-  color: #ffffff;
+  color: #0f0f0f;
   flex-shrink: 0;
 }
 
@@ -588,10 +587,14 @@ input, select, textarea, button {
 
 .d-btn-primary {
   background: var(--d-primary);
-  color: #ffffff;
+  color: #0f0f0f;
   border-color: var(--d-primary);
 }
-.d-btn-primary:hover { background: var(--d-primary-dark); box-shadow: 0 4px 12px var(--d-primary-glow); }
+.d-btn-primary:hover { 
+  background: var(--d-primary-dark); 
+  color: #ffffff;
+  box-shadow: 0 4px 12px var(--d-primary-glow); 
+}
 
 .d-btn-outline {
   background: transparent;

@@ -59,10 +59,13 @@ include '../driver/includes/header.php';
     </div>
 </div>
 
-<?php if (isset($_GET['msg'])): ?>
-    <div class="d-alert d-alert-success">
-        <i class="fas fa-circle-check"></i>
-        <?php echo htmlspecialchars($_GET['msg']); ?>
+<?php if (isset($_GET['msg'])): 
+    $msg = $_GET['msg'];
+    $is_err = preg_match('/(invalid|error|fail|susp)/i', $msg);
+?>
+    <div class="d-alert <?php echo $is_err ? 'd-alert-danger' : 'd-alert-success'; ?>">
+        <i class="fas <?php echo $is_err ? 'fa-circle-exclamation' : 'fa-circle-check'; ?>"></i>
+        <?php echo htmlspecialchars($msg); ?>
     </div>
 <?php endif; ?>
 

@@ -29,7 +29,7 @@ $topbar_title = $page_titles[$current_page] ?? 'Driver Portal';
     <title><?php echo $topbar_title; ?> — RUS CAB Driver</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../driver/assets/css/style.css">
+    <link rel="stylesheet" href="../driver/assets/css/style.css?v=2.1">
 </head>
 <body>
 <div class="driver-app">
@@ -114,4 +114,4 @@ $topbar_title = $page_titles[$current_page] ?? 'Driver Portal';
         </div>
 
         <!-- Content body starts here — closed in footer.php -->
-        <div class="driver-body"></div>
+        <div class="driver-body">

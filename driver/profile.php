@@ -246,6 +246,4 @@ include '../driver/includes/header.php';
     </div>
 </div>
 
-<script src="../public/assets/js/driver.js"></script>
-
 <?php include '../driver/includes/footer.php'; ?>
